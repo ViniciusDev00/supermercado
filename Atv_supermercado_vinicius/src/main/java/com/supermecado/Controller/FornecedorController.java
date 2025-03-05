@@ -1,28 +1,27 @@
-package com.supermecado.Controller;
+package com.supermercado.controller;
 
-
-import com.supermecado.DataBase.DatabaseSimulado;
-import com.supermecado.model.Fornecedor;
+import com.supermercado.database.DatabaseSimulado;
+import com.supermercado.model.Fornecedor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/Fornecedores")
+@RequestMapping("/fornecedores")
 public class FornecedorController {
 
     @GetMapping
-    public List<Fornecedor> listarFornecedores() {
+    public List<Fornecedor> obterTodosFornecedores() {
         return DatabaseSimulado.fornecedores;
     }
 
     @PostMapping
-    public String adicionarFornecedor(@RequestBody Fornecedor fornecedor) {
+    public String adicionarNovoFornecedor(@RequestBody Fornecedor fornecedor) {
         DatabaseSimulado.fornecedores.add(fornecedor);
-        return "Fornecedor adicionado com sucesso!";
+        return "Fornecedor registrado com sucesso!";
     }
 
-    @DeleteMapping("")
+    @DeleteMapping("/{id}")
     public String removerFornecedor(@PathVariable Long id) {
         DatabaseSimulado.fornecedores.removeIf(fornecedor -> fornecedor.getId().equals(id));
         return "Fornecedor removido com sucesso!";

@@ -1,4 +1,4 @@
-package com.supermecado.model;
+package com.supermercado.model;
 
 import lombok.Data;
 import java.util.Date;

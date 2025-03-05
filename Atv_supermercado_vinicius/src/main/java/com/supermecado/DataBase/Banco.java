@@ -1,10 +1,8 @@
-package com.supermecado.DataBase;
+package com.supermercado.database;
 
-import com.supermecado.model.*;
+import com.supermercado.model.*;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class DatabaseSimulado {
     public static List<Produto> produtos = new ArrayList<>();

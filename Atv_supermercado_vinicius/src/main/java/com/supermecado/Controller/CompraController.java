@@ -1,23 +1,22 @@
-package com.supermecado.Controller;
+package com.supermercado.controller;
 
-
-import com.supermecado.DataBase.DatabaseSimulado;
-import com.supermecado.model.Compra;
+import com.supermercado.database.DatabaseSimulado;
+import com.supermercado.model.Compra;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/Compras")
+@RequestMapping("/compras")
 public class CompraController {
 
     @GetMapping
-    public List<Compra> listarCompras() {
+    public List<Compra> obterTodasCompras() {
         return DatabaseSimulado.compras;
     }
 
     @PostMapping
-    public String registrarCompra(@RequestBody Compra compra) {
+    public String registrarNovaCompra(@RequestBody Compra compra) {
         DatabaseSimulado.compras.add(compra);
         return "Compra registrada com sucesso!";
     }
